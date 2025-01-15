@@ -22,8 +22,13 @@ from typing import List
 
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
+        # keep first and second element of triplet
         first_num, second_num = sys.maxsize, sys.maxsize
 
+        # while iterating over whole input array we need to next thing:
+        # compare current with first_num, if it less than first_num it will not affect existence of triplet
+        # the same for second_num
+        # if current more that both we've found a triplet
         for num in nums:
             if num <= first_num:
                 first_num = num
