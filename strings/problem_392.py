@@ -23,10 +23,11 @@ class Solution:
         s_pointer = 0
         t_pointer = 0
 
+        # перебирараю всю строку t, проверяя, есть ли в ней следующий символ "подстроки" s
         while s_pointer < len(s) and t_pointer < len(t):
             for i in range(t_pointer, len(t)):
                 if t[i] == s[s_pointer]:
-                    t_pointer = i + 1
+                    t_pointer += 1
                     s_pointer += 1
                     break
                 else:
@@ -43,4 +44,5 @@ class Solution:
 if __name__ == '__main__':
     print(Solution().isSubsequence('abc', 'ahbgdc') == True)
     print(Solution().isSubsequence('axc', 'ahbgdc') == False)
+    print(Solution().isSubsequence('abc', 'abcabcabcabcabcabc') == True)
 
