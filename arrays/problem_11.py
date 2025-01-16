@@ -19,17 +19,36 @@ from typing import List
 class Solution:
     def maxArea(self, height: List[int]) -> int:
 
-        # initial solution, just go from all possible variants and compare with current max, O(n^2)
-        _result = 0
-        for i in range(0, len(height) - 1):
-            for j in range(i + 1, len(height)):
-                _min_height = min(height[i], height[j])
-                _curr_result = _min_height * (j - i)
-                if _curr_result > _result:
-                    _result = _curr_result
+        # # initial solution, just go from all possible variants and compare with current max, O(n^2), Limit exceeded ((
+        # _result = 0
+        # for i in range(0, len(height) - 1):
+        #     for j in range(i + 1, len(height)):
+        #         _min_height = min(height[i], height[j])
+        #         _curr_result = _min_height * (j - i)
+        #         if _curr_result > _result:
+        #             _result = _curr_result
+        #
+        # return _result
 
-        return _result
+        _left_pointer = 0
+        _right_pointer = len(height) - 1
+        _max_area = 0
+        while _left_pointer < _right_pointer:
+            _curr_area = min(height[_left_pointer], height[_right_pointer]) * (_right_pointer - _left_pointer)
+            if _curr_area > _max_area:
+                _max_area = _curr_area
 
+            if height[_left_pointer] > height[_right_pointer]:
+                _right_pointer -= 1
+            elif height[_left_pointer] == height[_right_pointer]:
+                if height[_left_pointer + 1] > height[_right_pointer - 1]:
+                    _right_pointer -= 1
+                else:
+                    _left_pointer += 1
+            else:
+                _left_pointer += 1
+
+        return _max_area
 
 # test
 if __name__ == '__main__':
