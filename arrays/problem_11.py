@@ -30,9 +30,14 @@ class Solution:
         #
         # return _result
 
+        # pointers to beginning and end of the array
         _left_pointer = 0
         _right_pointer = len(height) - 1
         _max_area = 0
+        # the idea of solution
+        # on each step we calculate current area as taking min of current height and distance between elements in the array(width)
+        # after that we move left or right border, depends on height, we throw away border with the min height, keeping there
+        # height with higher height (sounds good, isn't it?)
         while _left_pointer < _right_pointer:
             _curr_area = min(height[_left_pointer], height[_right_pointer]) * (_right_pointer - _left_pointer)
             if _curr_area > _max_area:
