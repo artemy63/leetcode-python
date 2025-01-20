@@ -27,29 +27,44 @@ from typing import List
 
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
-
         result = 0
 
-        # brute force approach
-        # for each nums[i] handle numbers from nums[i+1]..nums[n] and check if they sum are k
-        # if so place into found plots -1
-        for i in range(0, len(nums) - 1):
-            #
-            if nums[i] == -1:
-                continue
-            for j in range(i + 1, len(nums)):
-                if nums[j] == -1:
-                    continue
+        # # first approach, brute force
+        # # for each nums[i] handle numbers from nums[i+1]..nums[n] and check if they sum are k
+        # # if so place into found plots -1
+        # for i in range(0, len(nums) - 1):
+        #     #
+        #     if nums[i] == -1:
+        #         continue
+        #     for j in range(i + 1, len(nums)):
+        #         if nums[j] == -1:
+        #             continue
+        #
+        #         if nums[i] + nums[j] == k:
+        #             result +=1
+        #             nums[i] = -1
+        #             nums[j] = -1
+        #             break
 
-                if nums[i] + nums[j] == k:
-                    result +=1
-                    nums[i] = -1
-                    nums[j] = -1
-                    break
+        # second approach
+        # sort input array, and use two pointers
+        nums.sort()
+        left_idx = 0
+        right_idx = len(nums) - 1
+        while left_idx < right_idx:
+            if nums[left_idx] + nums[right_idx] == k:
+                result += 1
+                left_idx += 1
+                right_idx -= 1
+            elif nums[left_idx] + nums[right_idx] < k:
+                left_idx += 1
+            else:
+                right_idx -= 1
 
         return result
 
+
 # test
 if __name__ == '__main__':
-    print(Solution().maxOperations([1,2,3,4], 5) == 2)
-    print(Solution().maxOperations([3,1,3,4,3], 6) == 1)
+    print(Solution().maxOperations([1, 2, 3, 4], 5) == 2)
+    print(Solution().maxOperations([3, 1, 3, 4, 3], 6) == 1)
