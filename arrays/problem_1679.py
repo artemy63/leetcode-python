@@ -46,20 +46,43 @@ class Solution:
         #             nums[j] = -1
         #             break
 
-        # second approach
-        # sort input array, and use two pointers
-        nums.sort()
-        left_idx = 0
-        right_idx = len(nums) - 1
-        while left_idx < right_idx:
-            if nums[left_idx] + nums[right_idx] == k:
+
+        # # second approach
+        # # sort input array, and use two pointers
+        # nums.sort()
+        # left_idx = 0
+        # right_idx = len(nums) - 1
+        # while left_idx < right_idx:
+        #     if nums[left_idx] + nums[right_idx] == k:
+        #         result += 1
+        #         left_idx += 1
+        #         right_idx -= 1
+        #     elif nums[left_idx] + nums[right_idx] < k:
+        #         left_idx += 1
+        #     else:
+        #         right_idx -= 1
+
+
+        # third approach
+        # use map to keep diff between desired sum (k) nd current element
+        # if for current nums[i] we have an element with such key in map => we have a match
+        paired_map = dict()
+        for i in range(0, len(nums)):
+            # diff between desired sum and current element
+            paired = k - nums[i]
+            # if pair for current already considered - we need to increase number of inclusions
+            if paired in paired_map:
                 result += 1
-                left_idx += 1
-                right_idx -= 1
-            elif nums[left_idx] + nums[right_idx] < k:
-                left_idx += 1
+                paired_cnt = paired_map[paired]
+                if paired_cnt == 1:
+                    paired_map.pop(paired)
+                else:
+                    paired_map[paired] = (paired_map[paired] - 1)
             else:
-                right_idx -= 1
+                if nums[i] in paired_map.keys():
+                    paired_map[nums[i]] = (paired_map[nums[i]] + 1)
+                else:
+                    paired_map[nums[i]] = 1
 
         return result
 
