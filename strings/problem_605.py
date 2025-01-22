@@ -1,3 +1,5 @@
+# 605. Can Place Flowers
+
 from typing import List
 
 
@@ -36,10 +38,13 @@ class Solution:
 
 # test
 if __name__ == '__main__':
-    print(Solution().canPlaceFlowers(flowerbed=[1,0,0,0,1], n=1) == True)
-    print(Solution().canPlaceFlowers(flowerbed=[1,0,0,0,1], n=2) == False)
-    print(Solution().canPlaceFlowers(flowerbed=[1,0,0,0,0,1], n=2) == False)
-    print(Solution().canPlaceFlowers(flowerbed=[1,0,0], n=1) == True)
-    print(Solution().canPlaceFlowers(flowerbed=[1,0,0,1], n=1) == False)
+    print(Solution().canPlaceFlowers(flowerbed=[1, 0, 0, 0, 1], n=1) == True)
+    print(Solution().canPlaceFlowers(flowerbed=[1, 0, 0, 0, 1], n=2) == False)
+    print(Solution().canPlaceFlowers(flowerbed=[1, 0, 0, 0, 0, 1], n=2) == False)
+    print(Solution().canPlaceFlowers(flowerbed=[1, 0, 0], n=1) == True)
+    print(Solution().canPlaceFlowers(flowerbed=[1, 0, 0, 1], n=1) == False)
     print(Solution().canPlaceFlowers(flowerbed=[0], n=1) == True)
-    print(Solution().canPlaceFlowers(flowerbed=[0,0,1,0,0,0,0,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0,0,0,1,0,1,0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0,1,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,1,0,1,0,0,0,0,0,0], n=17) == False)
+    print(Solution().canPlaceFlowers(
+        flowerbed=[0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,
+                   0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                   1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0], n=17) == False)
