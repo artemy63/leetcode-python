@@ -1,3 +1,5 @@
+# 11. Container With Most Water
+
 from typing import List
 
 
@@ -55,7 +57,8 @@ class Solution:
 
         return _max_area
 
+
 # test
 if __name__ == '__main__':
-    print(Solution().maxArea([1,8,6,2,5,4,8,3,7]) == 49)
-    print(Solution().maxArea([1,1]) == 1)
+    print(Solution().maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49)
+    print(Solution().maxArea([1, 1]) == 1)

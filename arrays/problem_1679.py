@@ -1,3 +1,5 @@
+# 1679. Max Number of K-Sum Pairs
+
 from typing import List
 
 
@@ -46,7 +48,6 @@ class Solution:
         #             nums[j] = -1
         #             break
 
-
         # # second approach
         # # sort input array, and use two pointers
         # nums.sort()
@@ -61,7 +62,6 @@ class Solution:
         #         left_idx += 1
         #     else:
         #         right_idx -= 1
-
 
         # third approach
         # use map to keep diff between desired sum (k) nd current element

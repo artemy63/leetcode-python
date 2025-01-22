@@ -1,3 +1,4 @@
+# 392. Is Subsequence
 
 # Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
 # A subsequence of a string is a new string that is formed from the original string by deleting some (can be none)
@@ -33,7 +34,6 @@ class Solution:
                 else:
                     t_pointer += 1
 
-
         if s_pointer == len(s):
             return True
         else:
@@ -45,4 +45,3 @@ if __name__ == '__main__':
     print(Solution().isSubsequence('abc', 'ahbgdc') == True)
     print(Solution().isSubsequence('axc', 'ahbgdc') == False)
     print(Solution().isSubsequence('abc', 'abcabcabcabcabcabc') == True)
-
