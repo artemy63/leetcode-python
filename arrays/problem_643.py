@@ -1,3 +1,5 @@
+# 643. Maximum Average Subarray I
+
 import sys
 from typing import List
 
