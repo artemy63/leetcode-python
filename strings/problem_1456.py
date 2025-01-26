@@ -52,6 +52,7 @@ class Solution:
 
         return result
 
+
 # test
 if __name__ == '__main__':
     print(Solution().maxVowels('abciiidef', 3) == 3)

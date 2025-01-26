@@ -40,5 +40,5 @@ class Solution:
 
 #  test
 if __name__ == '__main__':
-    print(Solution().findMaxAverage([1,12,-5,-6,50,3], 4))
+    print(Solution().findMaxAverage([1, 12, -5, -6, 50, 3], 4))
     print(Solution().findMaxAverage([5], 1))

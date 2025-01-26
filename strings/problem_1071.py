@@ -36,13 +36,14 @@ def gcd_of_strings(str1: str, str2: str) -> str:
     result = ''
     for str1_prefix in str1_prefixes:
         if (str1_prefix in str2_prefixes
-                and (len(str1_prefix) == len(str1) or str1_prefix*str1.count(str1_prefix) == str1)
-                and (len(str1_prefix) == len(str2) or str1_prefix*str2.count(str1_prefix) == str2)
+                and (len(str1_prefix) == len(str1) or str1_prefix * str1.count(str1_prefix) == str1)
+                and (len(str1_prefix) == len(str2) or str1_prefix * str2.count(str1_prefix) == str2)
         ):
             result = str1_prefix
             break
 
     return result
+
 
 def gcd_of_strings_2(self, str1: str, str2: str) -> str:
     len1, len2 = len(str1), len(str2)
@@ -59,11 +60,13 @@ def gcd_of_strings_2(self, str1: str, str2: str) -> str:
             return str1[:i]
     return ""
 
+
 # test
 if __name__ == '__main__':
     print(gcd_of_strings(str1='ABCABC', str2='ABC') == 'ABC')
     print(gcd_of_strings(str1='ABABAB', str2='ABAB') == 'AB')
     print(gcd_of_strings(str1='ABAB', str2='ABABAB') == 'AB')
     print(gcd_of_strings(str1='LEET', str2='CODE') == '')
-    print(gcd_of_strings(str1='TAUXXTAUXXTAUXXTAUXXTAUXX', str2='TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX') == 'TAUXX')
+    print(gcd_of_strings(str1='TAUXXTAUXXTAUXXTAUXXTAUXX',
+                         str2='TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX') == 'TAUXX')
     print(gcd_of_strings(str1='AA', str2='A') == 'A')

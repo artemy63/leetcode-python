@@ -63,4 +63,4 @@ class Solution:
 # test
 if __name__ == '__main__':
     print(Solution().findDifference([1, 2, 3], [2, 4, 6]) == [[1, 3], [4, 6]])
-    print(Solution().findDifference([1, 2, 3, 3], [1, 1, 2, 2]) == [[3],[]])
+    print(Solution().findDifference([1, 2, 3, 3], [1, 1, 2, 2]) == [[3], []])

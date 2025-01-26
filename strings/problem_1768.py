@@ -42,6 +42,7 @@ def merge_alternately(word1: str, word2: str) -> str:
 
     return ''.join(result)
 
+
 # test
 if __name__ == '__main__':
     print(merge_alternately(word1='abc', word2='pqr') == 'apbqcr')

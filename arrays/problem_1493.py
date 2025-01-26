@@ -47,8 +47,9 @@ class Solution:
         # because we need to delete one element, we counted longest_seq with extra 0
         return longest_seq - 1
 
+
 # test
 if __name__ == '__main__':
-    print(Solution().longestSubarray([1,1,0,1]) == 3)
-    print(Solution().longestSubarray([0,1,1,1,0,1,1,0,1]) == 5)
-    print(Solution().longestSubarray([1,1,1]) == 2)
+    print(Solution().longestSubarray([1, 1, 0, 1]) == 3)
+    print(Solution().longestSubarray([0, 1, 1, 1, 0, 1, 1, 0, 1]) == 5)
+    print(Solution().longestSubarray([1, 1, 1]) == 2)
