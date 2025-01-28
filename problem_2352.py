@@ -30,14 +30,35 @@ from typing import List
 class Solution:
     def equalPairs(self, grid: List[List[int]]) -> int:
 
-        rows_counter = Counter(tuple(r) for r in grid)
-        transpose_matrix = zip(*grid)
-        columns_counter = Counter(tuple(r) for r in transpose_matrix)
+        # # taken from solutions list
+        # rows_counter = Counter(tuple(r) for r in grid)
+        # transpose_matrix = zip(*grid)
+        # columns_counter = Counter(tuple(r) for r in transpose_matrix)
+        #
+        # result = 0
+        # for t in rows_counter:
+        #     if t in columns_counter:
+        #         result += rows_counter[t]*columns_counter[t]
+        #
+        # return result
 
+        # my own
         result = 0
-        for t in rows_counter:
-            if t in columns_counter:
-                result += rows_counter[t]*columns_counter[t]
+
+        row_map = {}
+        # navigate though each row and put it in hash
+        for row in grid:
+            row_as_str = str(tuple(row))
+            if row_as_str in row_map:
+                row_map[row_as_str] += 1
+            else:
+                row_map[row_as_str] = 1
+
+        transpose_matrix = zip(*grid)
+        for col in transpose_matrix:
+            col_as_str = str(col)
+            if col_as_str in row_map:
+                result += row_map[col_as_str]
 
         return result
 
