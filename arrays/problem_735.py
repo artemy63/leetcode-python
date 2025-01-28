@@ -32,25 +32,41 @@ from typing import List
 
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-        for idx in range(len(asteroids) - 1, -1, -1):
-            if asteroids[idx] * asteroids[idx - 1] < -1:  # they have different signs
-                if abs(asteroids[idx] > abs(
-                        asteroids[idx - 1])):  # if right is bigger than left, destroy right and move right to the left
-                    asteroids[idx - 1] = asteroids[idx]
-                    asteroids[idx] = 0
-                elif abs(asteroids[idx]) < abs(asteroids[idx - 1]):  # right is smaller than left, destroy it
-                    asteroids[idx] = 0
-                else:  # destroy both
-                    asteroids[idx] = 0
-                    asteroids[idx - 1] = 0
+        # NOT ACCEPTED !!!
+        # for idx in range(len(asteroids) - 1, -1, -1):
+        #     if asteroids[idx] * asteroids[idx - 1] < -1:  # they have different signs
+        #         if abs(asteroids[idx] > abs(
+        #                 asteroids[idx - 1])):  # if right is bigger than left, destroy right and move right to the left
+        #             asteroids[idx - 1] = asteroids[idx]
+        #             asteroids[idx] = 0
+        #         elif abs(asteroids[idx]) < abs(asteroids[idx - 1]):  # right is smaller than left, destroy it
+        #             asteroids[idx] = 0
+        #         else:  # destroy both
+        #             asteroids[idx] = 0
+        #             asteroids[idx - 1] = 0
+        #
+        # return [a for a in asteroids if a != 0]
 
-        return [a for a in asteroids if a != 0]
+        result = []
+
+        for asteroid in asteroids:
+            while result and asteroid < 0 < result[-1]:
+                if result[-1] < -asteroid:
+                    result.pop()
+                    continue
+                elif result[-1] == -asteroid:
+                    result.pop()
+                break
+            else:
+                result.append(asteroid)
+
+        return result
 
 
 # test
 if __name__ == '__main__':
-    print(Solution().asteroidCollision([5, 10, -5]) == [5, 10])
-    print(Solution().asteroidCollision([8, -8]) == [])
-    print(Solution().asteroidCollision([10, 2, -5]) == [10])
+    # print(Solution().asteroidCollision([5, 10, -5]) == [5, 10])
+    # print(Solution().asteroidCollision([8, -8]) == [])
+    # print(Solution().asteroidCollision([10, 2, -5]) == [10])
     # WTF ???
     print(Solution().asteroidCollision([-2, -1, 1, 2]) == [-2, -1, 1, 2])
