@@ -31,25 +31,35 @@
 
 class Solution:
     def removeStars(self, s: str) -> str:
-        # idea
-        # navigate from the end to beginning, consider current element, if it is a star increase counter of stars
-        # take into account next element, if it is a star just increase counter of stars
-        # if it is a usual letter decrease number of stars and remove it
+        # # idea
+        # # navigate from the end to beginning, consider current element, if it is a star increase counter of stars
+        # # take into account next element, if it is a star just increase counter of stars
+        # # if it is a usual letter decrease number of stars and remove it
+        #
+        # stars_counter = 0
+        # s_as_list = list(s)
+        # for idx in range(len(s) - 1, -1, -1):
+        #     if s_as_list[idx] == '*':
+        #         stars_counter += 1
+        #         s_as_list[idx] = -1
+        #         continue
+        #     elif stars_counter > 0:
+        #         s_as_list[idx] = -1 # just a marker to exclude this from result string
+        #         stars_counter -= 1
+        #
+        # result = ''.join(l for l in s_as_list if l != -1)
+        #
+        # return result
 
-        stars_counter = 0
-        s_as_list = list(s)
-        for idx in range(len(s) - 1, -1, -1):
-            if s_as_list[idx] == '*':
-                stars_counter += 1
-                s_as_list[idx] = -1
-                continue
-            elif stars_counter > 0:
-                s_as_list[idx] = -1 # just a marker to exclude this from result string
-                stars_counter -= 1
+        # better approach
+        result = []
+        for letter in s:
+            if letter == '*':
+                result.pop()
+            else:
+                result.append(letter)
 
-        result = ''.join(l for l in s_as_list if l != -1)
-
-        return result
+        return ''.join(result)
 
 # test
 if __name__ == '__main__':
