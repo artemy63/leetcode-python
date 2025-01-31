@@ -33,7 +33,3 @@ class Solution:
         curr_node = head.next
         while curr_node:
             if curr_node
-
-# test
-if __name__ == '__main__':
-    print(Solution().reverseList(None) is None)
