@@ -25,11 +25,19 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # initial state 1 -> 2 -> 3 -> 4 -> 5 -> None
+        # desired state 5 -> 4 -> 3 -> 2 -> 1 -> None
+        prev = None
+        curr = head # first ListNode element
 
-        if not head:
-            return head
+        while curr is not None:
+            # get right element from the current, 2
+            next_node = curr.next
 
-        prev_node = head
-        curr_node = head.next
-        while curr_node:
-            if curr_node
+            # reverse link for current node to previous, 1
+            curr.next = prev
+            prev = curr
+            curr = next_node
+
+        return prev
+
