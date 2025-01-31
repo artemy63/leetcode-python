@@ -41,3 +41,7 @@ class Solution:
 
         return prev
 
+# test
+if __name__ == '__main__':
+
+    print(str(Solution().reverseList(ListNode(1))))
