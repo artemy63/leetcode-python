@@ -37,4 +37,3 @@ class Solution:
 # test
 if __name__ == '__main__':
     print(Solution().reverseList(None) is None)
-    print(Solution().reverseList(ListNode) is None)
