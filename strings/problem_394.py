@@ -49,7 +49,7 @@ class Solution:
             elif char == "]":
                 # We have completed this frame, get the last current_string and k from when the frame
                 # opened, which is the k we need to duplicate the current current_string by
-                last_string, last_k = stack.pop(-1)
+                last_string, last_k = stack.pop()
                 current_string = last_string + last_k * current_string
             elif char.isdigit():
                 k = k * 10 + int(char)
