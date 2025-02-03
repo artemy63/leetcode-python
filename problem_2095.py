@@ -43,27 +43,49 @@ class ListNode:
 
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = head
-        slow_pointer = head
-        fast_pointer = head
-        number_of_nods = 0
+        # prev = head
+        # slow_pointer = head
+        # fast_pointer = head
+        # number_of_nods = 0
+        #
+        # if head.next is None:
+        #     return None
+        #
+        # while fast_pointer.next is not None:
+        #     number_of_nods += 1
+        #     fast_pointer = fast_pointer.next
+        #
+        #     if number_of_nods % 2 == 1:
+        #         prev = slow_pointer
+        #         slow_pointer = slow_pointer.next
+        #
+        # if slow_pointer.next is None:
+        #     prev.next = None
+        # else:
+        #     prev.next = slow_pointer.next
+        #
+        # return head
 
-        if head.next is None:
+
+        if not head or not head.next:
             return None
 
-        while fast_pointer.next is not None:
-            number_of_nods += 1
-            fast_pointer = fast_pointer.next
-
-            if number_of_nods % 2 == 1:
-                prev = slow_pointer
-                slow_pointer = slow_pointer.next
-
-        if slow_pointer.next is None:
-            prev.next = None
-        else:
-            prev.next = slow_pointer.next
-
+        # slow pointer, by one element each time, point to head at first time
+        slow = last_slow = head
+        # fast pointer, set to second element of linked list
+        fast = head.next            # 2
+        while fast and fast.next:
+            last_slow = slow
+            slow = slow.next        # 2
+            fast = fast.next.next   # 4
+        # Even number of elements; use `slow`
+        # eg. n = 4; 2 -> x -> 4
+        if fast and not fast.next:
+            slow.next = slow.next.next
+        # Odd number of elements; use `last_slow`
+        # eg. n = 5; 2 -> x -> 4
+        else:  # fast is None
+            last_slow.next = last_slow.next.next
         return head
 
 
