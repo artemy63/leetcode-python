@@ -45,7 +45,7 @@ if __name__ == '__main__':
     head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
     Solution().oddEvenList(head)
     curr_head = head
-    # while curr_head is not None:
-    #     print('element ' + str(curr_head.val))
-    #     curr_head = curr_head.next
+    while curr_head is not None:
+        print('element ' + str(curr_head.val))
+        curr_head = curr_head.next
 
