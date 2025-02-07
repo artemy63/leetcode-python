@@ -23,3 +23,29 @@ class ListNode:
 
 class Solution:
     def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None or head.next is None:
+            return head
+
+        curr_odd_head = head # текущий нечетный элемент
+        even_head = head.next # первый четный элемент, куда мы замкнём цепь
+        curr_even_head = head.next # текущий четный элемент
+
+        while curr_even_head is not None and curr_even_head.next is not None:
+            curr_odd_head.next = curr_even_head.next # текущий нечетный теперь смотрит на следующий после четного
+            curr_odd_head = curr_even_head.next # текущий четный это теперь тот, на который мы ему поменяли ссылку
+            curr_even_head.next = curr_even_head.next.next
+            curr_even_head = curr_odd_head.next
+
+        curr_odd_head.next = even_head
+
+        return head
+
+# test
+if __name__ == '__main__':
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+    Solution().oddEvenList(head)
+    curr_head = head
+    # while curr_head is not None:
+    #     print('element ' + str(curr_head.val))
+    #     curr_head = curr_head.next
+
