@@ -44,9 +44,14 @@ class ListNode:
 
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
-        first_twin_val = head.val
-        paired_twin_val = head.next.val
-        max_twin_sum = first_twin_val + paired_twin_val
+        # main idea
+        # navigate through input LL until reach the end and do next staff
+        # define the middle of the list, reverse links from first half of it
+        # 1 <- 2 - 3 -> 4
+        # it seems that I need three pointers:
+        # one to point of the end of first half (2)
+        # second to the end of list itself
+        # third to the beginning of second half of list
 
 
         return max_twin_sum
