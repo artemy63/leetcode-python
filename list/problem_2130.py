@@ -69,3 +69,8 @@ class Solution:
             max_sum_of_twins = max(max_sum_of_twins, fh_pointer.val + sh_pointer.val)
 
         return max_sum_of_twins
+
+# test
+if __name__ == '__main__':
+    ll = ListNode(1, ListNode(100000, None))
+    print(Solution().pairSum(ll) == 100001)
