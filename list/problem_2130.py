@@ -53,5 +53,4 @@ class Solution:
         # second to the end of list itself
         # third to the beginning of second half of list
 
-
         return max_twin_sum
