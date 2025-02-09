@@ -53,4 +53,19 @@ class Solution:
         # second to the end of list itself
         # third to the beginning of second half of list
 
-        return max_twin_sum
+        fh_pointer = head
+        sh_pointer = head.next # atr least 2 elements in the list
+        curr_pointer = sh_pointer # to define end of list
+        max_sum_of_twins = 0
+
+        while curr_pointer.next and curr_pointer.next.next:
+            sh_pointer = sh_pointer.next
+            curr_pointer = curr_pointer.next.next
+            fh_pointer = fh_pointer.next
+
+        max_sum_of_twins = fh_pointer.val + sh_pointer.val
+
+        while fh_pointer.next and sh_pointer.next:
+            max_sum_of_twins = max(max_sum_of_twins, fh_pointer.val + sh_pointer.val)
+
+        return max_sum_of_twins
