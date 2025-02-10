@@ -84,3 +84,6 @@ if __name__ == '__main__':
 
     ll = ListNode(5, ListNode(4, ListNode(2, ListNode(1, None))))
     print(Solution().pairSum(ll) == 6)
+
+    ll = ListNode(4, ListNode(2, ListNode(2, ListNode(3, None))))
+    print(Solution().pairSum(ll) == 7)
