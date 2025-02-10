@@ -68,9 +68,11 @@ class Solution:
             sh_pointer = sh_pointer.next
             curr_pointer = curr_pointer.next.next
 
-        max_sum_of_twins = fh_pointer.val + sh_pointer.val
+            fh_pointer.next = fh_pointer_prev
 
-        while fh_pointer.next and sh_pointer.next:
+        max_sum_of_twins = 0
+
+        while fh_pointer and sh_pointer:
             max_sum_of_twins = max(max_sum_of_twins, fh_pointer.val + sh_pointer.val)
             fh_pointer = fh_pointer.next
             sh_pointer = sh_pointer.next
