@@ -1,3 +1,4 @@
+from collections import deque
 from typing import Optional
 
 
@@ -20,12 +21,43 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        # corner case
+        if not root:
+            return 0
 
-        result = 0
+        # DFS
+        # return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
-        while root.left or root.right:
-            pass
+        # BFS
+        max_depth = 0
+        nodes = deque()
+        nodes.append(root)
+        while nodes:
+            max_depth += 1
 
-        return result
+            for _ in range(0, len(nodes)):
+                node = nodes.popleft()
+                if node.left:
+                    nodes.append(node.left)
+
+                if node.right:
+                    nodes.append(node.right)
+
+        return max_depth
+
+# test
+if __name__ == '__main__':
+    node = TreeNode(
+        val=3,
+        left=TreeNode(9),
+        right=TreeNode(
+            20,
+            left=TreeNode(15),
+            right=TreeNode(7)
+        )
+    )
+
+    print(Solution().maxDepth(node) == 3)
