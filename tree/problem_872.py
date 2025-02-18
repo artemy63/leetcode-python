@@ -42,6 +42,10 @@ from typing import Optional
 #     2    3                3    2
 # Input: root1 = [1,2,3], root2 = [1,3,2]
 # Output: false
+# Constraints:
+#
+# The number of nodes in each tree will be in the range [1, 200].
+# Both of the given trees will have values in the range [0, 200].
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -53,7 +57,7 @@ class TreeNode:
 
 class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
-        return False
+
 
 
 # test
