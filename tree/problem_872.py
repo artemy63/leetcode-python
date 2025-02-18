@@ -80,7 +80,7 @@ class Solution:
 if __name__ == '__main__':
     root_node_1 = TreeNode(val=1, left=TreeNode(2), right=TreeNode(3))
     root_node_2 = TreeNode(val=1, left=TreeNode(3), right=TreeNode(2))
-    print(Solution().leafSimilar(root_node_1, root_node_2))
+    print(Solution().leafSimilar(root_node_1, root_node_2) == False)
 
     root_node_1 = TreeNode(
         val=3,
@@ -116,4 +116,4 @@ if __name__ == '__main__':
             )
         )
     )
-    print(Solution().leafSimilar(root_node_1, root_node_2))
+    print(Solution().leafSimilar(root_node_1, root_node_2) == True)
