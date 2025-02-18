@@ -57,14 +57,30 @@ class TreeNode:
 
 class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        if not root1.left and not root2.left:
+            return root1.val == root2.val
 
+        def get_leaves(node: TreeNode, leaves:[int]):
+            if not node.left and not node.right:
+                leaves.append(node.val)
+            else:
+                get_leaves(node.left, leaves)
+                get_leaves(node.right, leaves)
+
+
+        first_tree_leaves = []
+        second_tree_leaves = []
+        get_leaves(root1, first_tree_leaves)
+        get_leaves(root2, second_tree_leaves)
+
+        return first_tree_leaves == second_tree_leaves
 
 
 # test
 if __name__ == '__main__':
     root_node_1 = TreeNode(val=1, left=TreeNode(2), right=TreeNode(3))
     root_node_2 = TreeNode(val=1, left=TreeNode(3), right=TreeNode(2))
-    print(Solution().leafSimilar(root_node_1, root_node_2) == False)
+    print(Solution().leafSimilar(root_node_1, root_node_2))
 
     root_node_1 = TreeNode(
         val=3,
@@ -100,4 +116,4 @@ if __name__ == '__main__':
             )
         )
     )
-    print(Solution().leafSimilar(root_node_1, root_node_2) == True)
+    print(Solution().leafSimilar(root_node_1, root_node_2))
