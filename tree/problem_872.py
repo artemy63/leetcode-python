@@ -57,16 +57,13 @@ class TreeNode:
 
 class Solution:
     def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
-        if not root1.left and not root2.left:
-            return root1.val == root2.val
-
-        def get_leaves(node: TreeNode, leaves:[int]):
-            if not node.left and not node.right:
-                leaves.append(node.val)
-            else:
-                get_leaves(node.left, leaves)
-                get_leaves(node.right, leaves)
-
+        def get_leaves(node: TreeNode, leaves:[]):
+            if node:
+                if not node.left and not node.right:
+                    leaves.append(node.val)
+                else:
+                    get_leaves(node.left, leaves)
+                    get_leaves(node.right, leaves)
 
         first_tree_leaves = []
         second_tree_leaves = []
@@ -74,6 +71,15 @@ class Solution:
         get_leaves(root2, second_tree_leaves)
 
         return first_tree_leaves == second_tree_leaves
+
+        # def dfs(node):
+        #     if node:
+        #         if not node.left and not node.right:
+        #             yield node.val
+        #         yield from dfs(node.left)
+        #         yield from dfs(node.right)
+        #
+        # return list(dfs(root1)) == list(dfs(root2))
 
 
 # test
