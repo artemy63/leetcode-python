@@ -24,10 +24,30 @@ from typing import List
 # Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 # It does not matter what you leave beyond the returned k (hence they are underscores).
 
+# Constraints:
+# 1 <= nums.length <= 3 * 104
+# -100 <= nums[i] <= 100
+# nums is sorted in non-decreasing order.
+
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        # todo
-        return 0
+
+        pointer_to_element_be_replaced = 1
+        pointer_to_next_element = 1
+
+        while pointer_to_next_element < len(nums) - 1:
+
+            while nums[pointer_to_next_element] == nums[pointer_to_next_element - 1]:
+                pointer_to_next_element += 1
+
+            if nums[pointer_to_next_element] != nums[pointer_to_element_be_replaced]:
+                nums[pointer_to_element_be_replaced] = nums[pointer_to_next_element]
+                pointer_to_element_be_replaced += 1
+                pointer_to_next_element += 1
+
+        return pointer_to_element_be_replaced
+
+
 
 # test
 if __name__ == '__main__':
