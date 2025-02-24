@@ -32,24 +32,20 @@ from typing import List
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
 
-        pointer_to_element_be_replaced = 1
-        pointer_to_next_element = 1
+        if len(nums) <= 1:
+            return len(nums)
 
-        while pointer_to_next_element < len(nums) - 1:
+        _pointer = 0
+        for idx in range(1, len(nums)):
+            if nums[idx] != nums[_pointer]:
+                _pointer += 1
+                nums[_pointer] = nums[idx]
 
-            while nums[pointer_to_next_element] == nums[pointer_to_next_element - 1]:
-                pointer_to_next_element += 1
-
-            if nums[pointer_to_next_element] != nums[pointer_to_element_be_replaced]:
-                nums[pointer_to_element_be_replaced] = nums[pointer_to_next_element]
-                pointer_to_element_be_replaced += 1
-                pointer_to_next_element += 1
-
-        return pointer_to_element_be_replaced
-
+        return _pointer + 1
 
 
 # test
 if __name__ == '__main__':
-    print(Solution().removeDuplicates([1,1,2]) == 2)
-    print(Solution().removeDuplicates([0,0,1,1,1,2,2,3,3,4]) == 5)
+    print(Solution().removeDuplicates([1, 1, 2]) == 2)
+    print(Solution().removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]) == 5)
+    print(Solution().removeDuplicates([1, 2]) == 2)
