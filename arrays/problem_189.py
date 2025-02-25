@@ -33,7 +33,7 @@ class Solution:
 
         # approach#1, use additional space
         if k > len(nums):
-            return
+            k = k % len(nums)
 
         second_arr = []
         for idx in range(len(nums) - k, len(nums)):
@@ -55,3 +55,7 @@ if __name__ == '__main__':
     nums = [-1, -100, 3, 99]
     Solution().rotate(nums, 2)
     print(nums == [3, 99, -1, -100])
+
+    nums = [1, 2]
+    Solution().rotate(nums, 3)
+    print(nums == [2, 1])
