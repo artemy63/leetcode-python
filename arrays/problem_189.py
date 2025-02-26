@@ -32,25 +32,25 @@ class Solution:
         """
 
         # approach #1, use additional space
-        # if k > len(nums):
-        #     k = k % len(nums)
-        #
-        # second_arr = []
-        # for idx in range(len(nums) - k, len(nums)):
-        #     second_arr.append(nums[idx])
-        #
-        # for idx in range(0, len(nums) - k):
-        #     second_arr.append(nums[idx])
-        #
-        # for idx in range(0, len(nums)):
-        #     nums[idx] = second_arr[idx]
+        if k > len(nums):
+            k = k % len(nums)
+
+        second_arr = []
+        for idx in range(len(nums) - k, len(nums)):
+            second_arr.append(nums[idx])
+
+        for idx in range(0, len(nums) - k):
+            second_arr.append(nums[idx])
+
+        for idx in range(0, len(nums)):
+            nums[idx] = second_arr[idx]
 
         # approach #2, not use additional space
-        for i in range(1, k + 1):
-            last = nums[len(nums) - 1]
-            for idx in range(len(nums) - 1, 0, -1):
-                nums[idx] = nums[idx - 1]
-            nums[0] = last
+        # for i in range(1, k + 1):
+        #     last = nums[len(nums) - 1]
+        #     for idx in range(len(nums) - 1, 0, -1):
+        #         nums[idx] = nums[idx - 1]
+        #     nums[0] = last
 
 
 # test
