@@ -22,11 +22,26 @@ from typing import List
 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        result = []
-        for num in nums:
-            result.append(num * num)
+        # result = []
+        # for num in nums:
+        #     result.append(num * num)
+        #
+        # result.sort()
+        #
+        # return result
 
-        result.sort()
+        # approach two
+        result = [0] * len(nums)
+        left_pointer = 0
+        right_pointer = len(nums) - 1
+
+        for idx in range(len(nums) - 1, -1, -1):
+            if abs(nums[right_pointer]) > abs(nums[left_pointer]):
+                result[idx] = nums[right_pointer] * nums[right_pointer]
+                right_pointer -= 1
+            else:
+                result[idx] = nums[left_pointer] * nums[left_pointer]
+                left_pointer += 1
 
         return result
 
