@@ -30,16 +30,17 @@ class ListNode:
         self.next = None
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
-        already_passed = []
-
-        curr = head
-        while curr and curr.next:
-            if curr.next in already_passed:
-                return True
-            else:
-                already_passed.append(curr.next)
-
-            curr = curr.next
-
-        return False
+    def hasCycle(self, head: Optional[ListNode]) -> bool:\
+        # approach #1
+        # already_passed = []
+        #
+        # curr = head
+        # while curr and curr.next:
+        #     if curr.next in already_passed:
+        #         return True
+        #     else:
+        #         already_passed.append(curr.next)
+        #
+        #     curr = curr.next
+        #
+        # return False
