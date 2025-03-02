@@ -34,7 +34,7 @@ class Solution:
         already_passed = []
 
         curr = head
-        while curr.next:
+        while curr and curr.next:
             if curr.next in already_passed:
                 return True
             else:
