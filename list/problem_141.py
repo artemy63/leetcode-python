@@ -44,3 +44,16 @@ class Solution:
         #     curr = curr.next
         #
         # return False
+
+        # approach #2
+        # O(1) for memory, two pointers
+        slow_p, fast_p = head, head
+
+        while fast_p and fast_p.next:
+            slow_p = slow_p.next
+            fast_p = fast_p.next.next
+
+            if fast_p == slow_p:
+                return True
+
+        return False
