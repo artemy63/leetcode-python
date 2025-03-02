@@ -50,4 +50,9 @@ from typing import List
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        return False
+
+        for r_idx in range(0, len(board)):
+            for c_idx in range(0, len(board)):
+                board[r_idx][c_idx]
+
+        return True
